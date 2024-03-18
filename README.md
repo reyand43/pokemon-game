@@ -1,4 +1,6 @@
 # To start the project paste following commands in console
 
-yarn install
-yarn start
+| Command      | Description                      |
+| ------------ | -------------------------------- |
+| yarn install | Download dependencies            |
+| yarn start   | Start project                    |
