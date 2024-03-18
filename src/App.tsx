@@ -1,25 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { GamePage } from './pages/GamePage/GamePage';
+import { HomePage } from './pages/HomePage/HomePage';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import { SelectPokemonPage } from './pages/SelectPokemonPage/SelectPokemonPage';
+import { GameRoutes } from './routes/GameRoutes';
+import { GameContextProvider } from './contexts/GameContext';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryClientProvider client={new QueryClient()}>
+      <GameContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<GameRoutes />} >
+              <Route path="/" element={<HomePage />} />
+              <Route path="/select-pokemon" element={<SelectPokemonPage />} />
+              <Route path="/game" element={<GamePage />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </GameContextProvider>
+    </QueryClientProvider>
   );
 }
 

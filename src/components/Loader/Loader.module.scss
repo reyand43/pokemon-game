@@ -1,0 +1,15 @@
+.root {
+  animation: roll 1s infinite;
+  width: 40px;
+  height: 40px;
+}
+
+@keyframes roll {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

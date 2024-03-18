@@ -1,0 +1,91 @@
+.root {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.players {
+  display: flex;
+  width: 100%;
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  gap: 16px;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  position: relative;
+  gap: 16px;
+}
+
+.pokemonImage {
+  width: 200px;
+  height: 200px;
+}
+
+.attack {
+  color: red;
+  font-size: 24px;
+  animation: moveUpAndWave 1s ease-in-out infinite;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: transalate(-50%, -50%);
+}
+
+@keyframes moveUpAndWave {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-50px) rotate(-10deg);
+  }
+
+  100% {
+    transform: translateY(-100px) rotate(0deg);
+  }
+}
+
+.backdrop {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  background: #313131c3;
+
+  img {
+    width: 300px;
+  }
+}
+
+.results {
+  background-color: var(--yellow);
+  border: 8px solid var(--blue);
+  padding: 16px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 16px;
+
+  &__title {
+    text-align: center;
+  }
+}
